@@ -3,10 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>ShowieMovie</title>
+    <title>Showie Movie</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+    <img id="logo" src="/images/showiemovie.png">
+    <form class="search" action="#">
+      <select id="type">
+        <option value="disabled selected">Type</option>
+        <option>Shows</option>
+        <option>Movies</option>      
+      </select>
+      <select id="services">
+        <option value="disabled selected">Streaming Service</option>
+        <option>Netflix</option>
+        <option>Hulu</option>
+        <option>Prime Video</option>
+        <option>Disney+<option>
+      </select>
+      <!-- search button -->
+      <input type="text" placeholder="Enter Title" name="search">
+      <button id="search" type="submit">🔍</button>
+    </form>
     <script src="script.js"></script>
   </body>
 </html>
