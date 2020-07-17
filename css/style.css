@@ -1,9 +1,9 @@
 /* menu */
 #logo {
-  width: 150px;
-  height: 104px;
+    width: 150px;
+    height: 104px;
 }
-
+  
 #menu-icon {
   width: 70px;
   height: 70px;
@@ -19,18 +19,25 @@
 }
 
 #menu li {
-  float: left;
+  display: inline;
+  padding-right: 30px;
+}
+
+#menu li:nth-child(n+2) {
+  position: relative;
+  top: -15px;
 }
 
 #menu li a {
   text-decoration: none;
-  display: block;
-  padding: 15px 30px;
+  /* display: block; */
+  /* padding: 15px 30px; */
   background-color:rgb(75, 179, 179);
 }
 
 #menu li a:hover {
-  background-color: rgb(149, 212, 212);
+  border-bottom: 3px solid black;
+  /* background-color: rgb(149, 212, 212); */
 }
 
 /* Search */
@@ -78,4 +85,18 @@
 #btn-search:hover {
   background-color:rgb(150, 218, 218);
   color: black;
+}
+
+/* saved */
+.hide {
+  display: none;
+  position: absolute;
+}
+.show {
+  display: inline-block;
+  position: relative;
+}
+
+.partials {
+  text-align: center;
 }
