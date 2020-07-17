@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Showie Movie</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <img id="logo" src="/images/showiemovie.png">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Home | Showie Movie</title>
+	<link href="/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<!-- menu -->
+  <nav>
+	  <ul id="menu">
+      <li>
+        <img id="logo" src="/css/images/showiemovie.png">
+      </li>
+		  <li>
+        <a href="#">
+          <img id="menu-icon" src="/css/images/Search_find_3519.png">
+        </a>
+      </li>
+	  	<li>
+        <a href="watchlist.html">
+          <img id="menu-icon" src="/css/images/heart.png">
+        </a>
+      </li>
+	  </ul>
+  </nav>
+  
+  <!-- search -->
+  <main>
     <form class="search" action="#">
       <select id="type">
-        <option value="disabled selected">Type</option>
+        <option value="disabled selected">TV / Show</option>
         <option>Shows</option>
         <option>Movies</option>      
       </select>
@@ -22,9 +44,12 @@
         <option>Disney+<option>
       </select>
       <!-- search button -->
-      <input type="text" placeholder="Enter Title" name="search">
-      <button id="search" type="submit">🔍</button>
+      <input id="input-search" type="text" placeholder="Enter Title" name="search">
+      <button id="btn-search" type="submit">🔍 Search</button>
     </form>
-    <script src="script.js"></script>
+
+    <p>Results will be displayed here</p>
+    </main>
+    <script src="/public/script.js"></script>
   </body>
 </html>
