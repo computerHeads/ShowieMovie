@@ -1,24 +1,13 @@
-<p style="text-align: center;">A place to edit movie and show data. <br>First, serach for the movie or show you would like to edit. <br>Edits can be made to the listed result and saved by clicking the Save button. <br>An example listing is show below.</p>
-
-<form class="search" action="#">
-  <fieldset>
-    <legend>Find You Want To Edit</legend>
-        <!-- search button -->
-        <input id="input-search" type="text" placeholder="Enter Title" name="search">
-        <button id="btn-search" type="submit">🔍 Search</button>
-  </fieldset>
-</form>
-
 <!-- multiple choices
   **CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
 
 <!-- TV/SHOW /TITLE -->
 <form class="add" action="#">
   <fieldset>
-  <legend>Edit TV Show/Movie Here</legend>
-  <input id="input-title" type="text" placeholder="Edit Title" name="addTitle" value="The Secret Life of Pets">
+  <legend>Add New TV Show/Movie Here:</legend>
+  <input id="input-title" type="text" placeholder="Enter Title" name="addTitle">
   <br>
-  <input id="input-imdb" type="text" placeholder="Edit IMDB Score" name="addImdb" value="7.8">
+  <input id="input-imdb" type="text" placeholder="Enter IMDB Score" name="addImdb">
   <!-- multiple choices
   CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown --> 
   <div id="type-select">
@@ -40,7 +29,7 @@
   </div>
 
   <!-- submit -->
-  <button id="btn-edit" type="submit">✏️ Edit</button>
+  <button id="btn-submit" type="submit">📝 Submit</button>
   </fieldset>
 </form>
 

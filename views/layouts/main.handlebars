@@ -5,35 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <!-- multiple choices
+    **CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
 </head>
 
 <body>
     <!-- menu -->
     <nav>
-        <ul id="menu">
+        <ul id="nav-menu">
             <li>
-                <a href="http://flip2.engr.oregonstate.edu:6548/">
-                    <img id="logo" src="/images/showiemovie.png">
+              <img id="nav-logo" src="/images/showiemovie.png">
+            </li>
+            <li>
+                <a href="/">
+                    <img id="nav-menu-icon" src="/images/Search_find_3519.png">
                 </a>
             </li>
             <li>
-                <a href="http://flip2.engr.oregonstate.edu:6548/">
-                    <img id="menu-icon" src="/images/Search_find_3519.png">
+                <a href="/saved">
+                    <img id="nav-menu-icon" src="/images/heart.png">
                 </a>
             </li>
             <li>
-                <a href="http://flip2.engr.oregonstate.edu:6548/saved">
-                    <img id="menu-icon" src="/images/heart.png">
+                <a href="/edit">
+                    <img id="nav-menu-icon" src="/images/edit-icon.png">
                 </a>
             </li>
             <li>
-                <a href="http://flip2.engr.oregonstate.edu:6548/edit">
-                    <img id="menu-icon" src="/images/edit.png">
+                <a href="/add">
+                    <img id="nav-menu-icon" src="/images/add-icon.png">
                 </a>
             </li>
         </ul>
     </nav>
+    <main>
     {{{body}}}
+    </main>
 </body>
 
 </html>

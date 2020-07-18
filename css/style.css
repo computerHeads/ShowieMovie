@@ -1,15 +1,19 @@
-/* menu */
-#logo {
-    width: 150px;
-    height: 104px;
+main {
+  margin: 50px;
 }
-  
-#menu-icon {
+
+/* menu */
+#nav-logo {
+  width: 150px;
+  height: 104px;
+}
+
+#nav-menu-icon {
   width: 70px;
   height: 70px;
 }
 
-#menu {
+#nav-menu {
   list-style-type: none;
   overflow: hidden;
   margin: 0;
@@ -18,26 +22,19 @@
   background-color:rgb(75, 179, 179);
 }
 
-#menu li {
-  display: inline;
-  padding-right: 30px;
+#nav-menu li {
+  float: left;
 }
 
-#menu li:nth-child(n+2) {
-  position: relative;
-  top: -15px;
-}
-
-#menu li a {
+#nav-menu li a {
   text-decoration: none;
-  /* display: block; */
-  /* padding: 15px 30px; */
+  display: block;
+  padding: 15px 30px;
   background-color:rgb(75, 179, 179);
 }
 
-#menu li a:hover {
-  border-bottom: 3px solid black;
-  /* background-color: rgb(149, 212, 212); */
+#nav-menu li a:hover {
+  background-color: rgb(149, 212, 212);
 }
 
 /* Search */
@@ -99,4 +96,145 @@
 
 .partials {
   text-align: center;
+}
+
+/* add */
+.add {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.add legend {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 1.5px solid rgb(75, 179, 179);
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  width: 50%;
+  background-color: rgb(75, 179, 179);
+}
+
+#type-select {
+  margin: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(75, 179, 179);
+}
+
+#stream-select {
+  margin: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(75, 179, 179)
+}
+
+#input-title {
+  margin: 10px;
+  font-size: 25px;
+  padding: 5px;
+  width: 390px;
+  border-radius: 10px;
+}
+
+#input-imdb {
+  margin: 10px;
+  font-size: 25px;
+  padding: 5px;
+  width: 390px;
+  border-radius: 10px;
+}
+
+#btn-submit {
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  margin: 15px;
+  background-color: rgb(53, 126, 126);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#btn-submit:hover {
+  background-color:rgb(150, 218, 218);
+  color: black;
+}
+
+/* edit */
+.search legend {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 1.5px solid rgb(75, 179, 179);
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  width: 50%;
+  background-color: rgb(75, 179, 179);
+}
+
+#btn-edit {
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  margin: 15px;
+  background-color: rgb(53, 126, 126);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#btn-edit:hover {
+  background-color:rgb(150, 218, 218);
+  color: black;
+}
+
+/* partials */
+.results {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.results img {
+  height: 40px;
+  width: 100px;
+  position: relative;
+  /* bottom: -12px; */
+  margin: 0;
+  padding: 0;
+}
+
+.btn-remove {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  background-color: red;
+  padding: 5px;
+  border-radius: 10px;
+  position: relative;
+  top: -5px;
+}
+
+.btn-save {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(53, 126, 126);
+  padding: 5px 20px;
+  border-radius: 10px;
+  position: relative;
+  top: -5px;
+}
+
+.btn-imdb {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  background-color: purple;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 4px;
+  border-radius: 10px;
+  position: relative;
+  top: -5px;
 }

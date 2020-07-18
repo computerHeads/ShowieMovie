@@ -10,7 +10,7 @@ app.use(express.static('scripts'));
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
-app.set('port', 6548);
+// app.set('port', 6548);
 
 // default route for loading the page
 app.get('/', (req, res, next) => {
@@ -25,6 +25,11 @@ app.get('/saved', (req, res, next) => {
 // route for edit
 app.get('/edit', (req, res, next) => {
     res.render('edit')
+})
+
+// route for add
+app.get('/add', (req, res, next) => {
+    res.render('add')
 })
 
 app.listen(app.get('port'), function () {
