@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
-const mysql = require('./scripts/dbcon.js');
+// const mysql = require('./scripts/dbcon.js');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -15,6 +15,11 @@ app.set('view engine', 'handlebars');
 // default route for loading the page
 app.get('/', (req, res, next) => {
     res.render('home');
+});
+
+// route for search
+app.get('/search', (req, res, next) => {
+    res.render('search');
 });
 
 // route for saved
