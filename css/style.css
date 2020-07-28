@@ -146,6 +146,14 @@ main {
   border-radius: 10px;
 }
 
+#input-stream {
+  margin: 10px;
+  font-size: 25px;
+  padding: 5px;
+  width: 390px;
+  border-radius: 10px;
+}
+
 #btn-submit {
   font-size: 25px;
   font-weight: bold;

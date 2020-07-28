@@ -1,11 +1,14 @@
-<p style="text-align: center;">A place to edit movie and show data. <br>First, serach for the movie or show you would like to edit. <br>Edits can be made to the listed result and saved by clicking the Save button. <br>An example listing is show below.</p>
+<title>Edit | Showie Movie</title>
+<p style="text-align: center;">A place to edit movie and show data. <br>First, serach for the movie or show you would
+  like to edit. <br>Edits can be made to the listed result and saved by clicking the Save button. <br>An example listing
+  is show below.</p>
 
 <form class="search" action="#">
   <fieldset>
     <legend>Find You Want To Edit</legend>
-        <!-- search button -->
-        <input id="input-search" type="text" placeholder="Enter Title" name="search">
-        <button id="btn-search" type="submit">🔍 Search</button>
+    <!-- search button -->
+    <input id="input-search" type="text" placeholder="Enter Title" name="search">
+    <button id="btn-search" type="submit">🔍 Search</button>
   </fieldset>
 </form>
 
@@ -15,37 +18,37 @@
 <!-- TV/SHOW /TITLE -->
 <form class="add" action="#">
   <fieldset>
-  <legend>Edit TV Show/Movie Here</legend>
-  <input id="input-title" type="text" placeholder="Edit Title" name="addTitle" value="The Secret Life of Pets">
-  <br>
-  <input id="input-imdb" type="text" placeholder="Edit IMDB Score" name="addImdb" value="7.8">
-  <!-- multiple choices
-  CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown --> 
-  <div id="type-select">
-  <label for="types">Types (TV / Movie)</label>  
-  <select class="selectpicker" data-live-search="true" name="types">
-    <option>TV Show</option>
-    <option>Movie</option>
-  </select>
-  </div>
+    <legend>Edit TV Show/Movie Here</legend>
+    <input id="input-title" type="text" placeholder="Edit Title" name="addTitle" value="The Secret Life of Pets">
+    <br>
+    <input id="input-imdb" type="text" placeholder="Edit IMDB Score" name="addImdb" value="7.8">
+    <!-- multiple choices
+  CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
+    <div id="type-select">
+      <label for="types">Types (TV / Movie)</label>
+      <select class="selectpicker" data-live-search="true" name="types">
+        <option>TV Show</option>
+        <option>Movie</option>
+      </select>
+    </div>
 
-  <div id="stream-select">
-  <label for="stream-services">Streaming Services</label>  
-  <select class="selectpicker" multiple data-live-search="true" name="stream-services">
-    <option>Netflix</option>
-    <option>Hulu</option>
-    <option>Prime Video</option>
-    <option>Disney+</option>
-  </select>
-  </div>
+    <div id="stream-select">
+      <label for="stream-services">Streaming Services</label>
+      <select class="selectpicker" multiple data-live-search="true" name="stream-services">
+        <option>Netflix</option>
+        <option>Hulu</option>
+        <option>Prime Video</option>
+        <option>Disney+</option>
+      </select>
+    </div>
 
-  <!-- submit -->
-  <button id="btn-edit" type="submit">✏️ Edit</button>
+    <!-- submit -->
+    <button id="btn-edit" type="submit">✏️ Edit</button>
   </fieldset>
 </form>
 
 <!-- multiple choices
-  CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->       
+  CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
