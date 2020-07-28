@@ -14,24 +14,33 @@ app.set('port', 6548);
 
 // default route for loading the page
 app.get('/', (req, res, next) => {
-    res.render('home');
+  res.render('home');
+});
+
+// route for search
+app.get('/search', (req, res, next) => {
+  res.render('search');
 });
 
 // route for saved
 app.get('/saved', (req, res, next) => {
-    res.render('saved')
-})
+  res.render('saved');
+});
 
 // route for edit
 app.get('/edit', (req, res, next) => {
-    res.render('edit')
-})
+  res.render('edit');
+});
 
 // route for add
 app.get('/add', (req, res, next) => {
-    res.render('add')
-})
+  res.render('add');
+});
 
 app.listen(app.get('port'), function () {
-    console.log(`Express started on http://${process.env.HOSTNAME}:${app.get('port')}; press Ctrl-C to terminate.`);
+  console.log(
+    `Express started on http://${process.env.HOSTNAME}:${app.get(
+      'port'
+    )}; press Ctrl-C to terminate.`
+  );
 });
