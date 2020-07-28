@@ -1,40 +1,41 @@
+<title>Add | Showie Movie</title>
 <!-- multiple choices
   **CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
 
 <!-- TV/SHOW /TITLE -->
 <form class="add" action="#">
   <fieldset>
-  <legend>Add New TV Show/Movie Here:</legend>
-  <input id="input-title" type="text" placeholder="Enter Title" name="addTitle">
-  <br>
-  <input id="input-imdb" type="text" placeholder="Enter IMDB Score" name="addImdb">
-  <!-- multiple choices
-  CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown --> 
-  <div id="type-select">
-  <label for="types">Types (TV / Movie)</label>  
-  <select class="selectpicker" data-live-search="true" name="types">
-    <option>TV Show</option>
-    <option>Movie</option>
-  </select>
-  </div>
+    <legend>Add New TV Show/Movie Here:</legend>
+    <input id="input-title" type="text" placeholder="Enter Title" name="addTitle">
+    <br>
+    <input id="input-imdb" type="text" placeholder="Enter IMDB Score" name="addImdb">
+    <!-- multiple choices
+  CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
+    <div id="type-select">
+      <label for="types">Types (TV / Movie)</label>
+      <select class="selectpicker" data-live-search="true" name="types">
+        <option>TV Show</option>
+        <option>Movie</option>
+      </select>
+    </div>
 
-  <div id="stream-select">
-  <label for="stream-services">Streaming Services</label>  
-  <select class="selectpicker" multiple data-live-search="true" name="stream-services">
-    <option>Netflix</option>
-    <option>Hulu</option>
-    <option>Prime Video</option>
-    <option>Disney+</option>
-  </select>
-  </div>
+    <div id="stream-select">
+      <label for="stream-services">Streaming Services</label>
+      <select class="selectpicker" multiple data-live-search="true" name="stream-services">
+        <option>Netflix</option>
+        <option>Hulu</option>
+        <option>Prime Video</option>
+        <option>Disney+</option>
+      </select>
+    </div>
 
-  <!-- submit -->
-  <button id="btn-submit" type="submit">📝 Submit</button>
+    <!-- submit -->
+    <button id="btn-submit" type="submit">📝 Submit</button>
   </fieldset>
 </form>
 
 <!-- multiple choices
-  CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->       
+  CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
