@@ -116,6 +116,24 @@ main {
   background-color: rgb(75, 179, 179);
 }
 
+/* edit */
+.edit {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.edit legend {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 1.5px solid rgb(75, 179, 179);
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  width: 50%;
+  background-color: rgb(75, 179, 179);
+}
+
 #type-select {
   margin: 10px;
   font-size: 25px;

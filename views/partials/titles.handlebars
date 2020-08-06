@@ -1,14 +1,33 @@
 <div class="titles">
     <div>
-        <span class="results"><button class="btn-save">Save</button> 
-        {{!-- <button class="btn-imdb" onclick="showIMDB('1')">IMDB</button>  --}}
-        IMDB Score: 7.8 |
-        The Secret Life of Pets |
-        <img src="images/netflix.png"> 
-        <img src="images/hulu.png"> 
-        <img src="images/prime.png">
-        <img src="images/disney+.png">
-        </span>
+        <form class="save" action="http://flip2.engr.oregonstate.edu:6548/saved" method="post">
+            <span class="results"><button type="submit" class="btn-save">+</button>
+                {{!-- <button class="btn-imdb" onclick="showIMDB('1')">IMDB</button>  --}}
+                IMDB Score:
+                <input id="score" type="hidden" name="score" value={{score}}>
+                <input id="title" type="hidden" name="title" value="{{title}}">
+                {{score}}|
+                {{title}}|
+                {{#each stream}}
+                {{#if this.netflix}}
+                <input id=" netflix" type="hidden" name="netflix" value=1>
+                <img src="images/netflix.png">
+                {{/if}}
+                {{#if this.hulu}}
+                <input id="hulu" type="hidden" name="hulu" value=1>
+                <img src="images/hulu.png">
+                {{/if}}
+                {{#if this.prime}}
+                <input id="prime" type="hidden" name="prime" value=1>
+                <img src="images/prime.png">
+                {{/if}}
+                {{#if this.disney}}
+                <input id="disney" type="hidden" name="disney" value=1>
+                <img src="images/disney+.png">
+                {{/if}}
+                {{/each}}
+            </span>
+        </form>
     </div>
     <div id='1' class="hide">
         <p>This is where IMDB data will be displayed</p>
