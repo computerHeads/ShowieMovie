@@ -3,9 +3,12 @@
   **CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
 
 <!-- Streaming Service -->
-<form class="add" action="#">
+<form class="add" action="http://flip2.engr.oregonstate.edu:6548/add-new" method="post">
   <fieldset>
     <legend>Add New Streaming Service Here:</legend>
+    {{#if success}}
+    <h1 style="text-align: center; color: red;">Add Successful!</h1>
+    {{/if}}
     <input id="input-stream" type="text" placeholder="Enter New Streaming Service" name="addStream">
     <br>
 
