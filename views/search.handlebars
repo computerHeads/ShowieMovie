@@ -2,11 +2,11 @@
 <!-- search -->
 <main>
     <form class="search" action="http://flip2.engr.oregonstate.edu:6548/search" method="post">
-        {{!-- <select id="type" name="type" required="true">
+        <select id="type" name="type" required="true">
             <option value="" disabled selected>TV / Movie</option>
             <option value="Shows">TV Shows</option>
             <option value="Movies">Movies</option>
-        </select> --}}
+        </select>
         {{!-- <select id="services" name="services">
             <option value="disabled selected">Streaming Service</option>
             <option>Netflix</option>
@@ -16,15 +16,7 @@
             <option>
         </select> --}}
         <!-- search button -->
-        <div id="type-select">
-            <label for="title">Select a title: </label>
-            <select class="selectpicker" data-live-search="true" name="titles">
-                {{#each titles}}
-                <option>{{this}}</option>
-                {{/each}}
-            </select>
-        </div>
-        {{!-- <input id="input-search" type="text" placeholder="Enter Title" name="search" required="true"> --}}
+        <input id="input-search" type="text" placeholder="Enter Title" name="search" required="true">
         <button id="btn-search" type="submit">🔍 Search</button>
     </form>
 
@@ -39,6 +31,3 @@
 </main>
 {{!-- <script src="/public/script.js"></script> --}}
 <script src="titles.js "></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>

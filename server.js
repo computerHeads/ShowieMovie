@@ -19,19 +19,7 @@ app.get('/', (req, res, next) => {
 
 // route for rendering search page
 app.get('/search', (req, res, next) => {
-  var payload = {};
-  payload.titles = [];
-  mysql.pool.query('SELECT title FROM Movies UNION SELECT title FROM Shows ORDER BY title', (err, result) => {
-    if (err) {
-      next(err);
-      return;
-    }
-    for (var i = 0; i < result.length; i++) {
-      payload.titles.push(result[i].title);
-    }
-    res.render('search', payload);
-  });
-
+  res.render('search');
 });
 
 // route for serach form data
@@ -482,7 +470,26 @@ app.post('/add', (req, res, next) => {
 });
 
 app.post('/add-new', (req, res, next) => {
-
+  const name = req.body.addStream;
+  var payload = {};
+  mysql.pool.query('INSERT INTO StreamingServices (name) VALUES (?)', [name], (err, result) => {  // get all streaming services
+    if (err) {
+      next(err);
+      return;
+    }
+    payload.streams = [];
+    mysql.pool.query('SELECT * FROM StreamingServices', (err, result) => {  // get all streaming services
+      if (err) {
+        next(err);
+        return;
+      }
+      for (var i = 0; i < result.length; i++) {
+        payload.streams.push({ streamingServiceID: result[i].streamingServiceID, name: result[i].name });
+      }
+      payload.success = true;
+      res.render('add', payload);
+    });
+  });
 });
 
 function addPage(res, success) {

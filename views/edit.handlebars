@@ -36,20 +36,6 @@
     <input id="input-imdb" type="text" placeholder="Edit IMDB Score" name="imdb" value="{{score}}">
     <!-- multiple choices
   CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
-    {{!-- <div id="type-select">
-      <label for="types">Types (TV / Movie)</label>
-      <select class="selectpicker" data-live-search="true" name="types">
-        {{#if movie}}
-        <option>TV Show</option>
-        <option selected>Movie</option>
-        {{/if}}
-        {{#if show}}
-        <option selected>TV Show</option>
-        <option>Movie</option>
-        {{/if}}
-      </select>
-    </div> --}}
-
     {{#if movie}}
     <input id="type" type="hidden" name="type" value="Movie">
     {{/if}}
@@ -60,8 +46,7 @@
     <div id="stream-select">
       <label for="stream">Streaming Services</label>
       <select class="selectpicker" multiple data-live-search="true" name="stream">
-        {{!-- {{#each stream}} --}}
-        {{!-- <option>None</option> --}}
+
         {{#each streams}}
         {{#if this.selected}}
         <option selected value="{{this.streamingServiceID}}">{{this.name}}</option>
@@ -70,31 +55,6 @@
         {{/if}}
         {{/each}}
 
-        {{!-- {{#if netflix}}
-        <option selected>Netflix</option>
-        {{else}}
-        <option>Netflix</option>
-        {{/if}}
-
-        {{#if hulu}}
-        <option selected>Hulu</option>
-        {{else}}
-        <option>Hulu</option>
-        {{/if}}
-
-        {{#if prime}}
-        <option selected>Prime</option>
-        {{else}}
-        <option>Prime</option>
-        {{/if}}
-
-        {{#if disney}}
-        <option selected>Disney+</option>
-        {{else}}
-        <option>Disney</option>
-        {{/if}} --}}
-
-        {{!-- {{/each}} --}}
       </select>
     </div>
 
