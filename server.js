@@ -19,7 +19,19 @@ app.get('/', (req, res, next) => {
 
 // route for rendering search page
 app.get('/search', (req, res, next) => {
-  res.render('search');
+  var payload = {};
+  payload.titles = [];
+  mysql.pool.query('SELECT title FROM Movies UNION SELECT title FROM Shows ORDER BY title', (err, result) => {
+    if (err) {
+      next(err);
+      return;
+    }
+    for (var i = 0; i < result.length; i++) {
+      payload.titles.push(result[i].title);
+    }
+    res.render('search', payload);
+  });
+
 });
 
 // route for serach form data
@@ -207,7 +219,7 @@ app.post('/edit', (req, res, next) => {
       if (result[0] != undefined) {  // the movie exists
         payload.id = result[0].movieID;
         payload.imdbID = result[0].imdbID;
-        payload.movie = true;
+
         mysql.pool.query('SELECT * FROM StreamingServices', (err, result) => {  // get all streaming services
           if (err) {
             next(err);
@@ -232,6 +244,7 @@ app.post('/edit', (req, res, next) => {
                 next(err);
                 return;
               }
+              payload.movie = true;
               payload.score = result[0].score;
               res.render('edit', payload);
             });
@@ -249,7 +262,7 @@ app.post('/edit', (req, res, next) => {
       if (result[0] != undefined) {  // the show exists
         payload.id = result[0].showID;
         payload.imdbID = result[0].imdbID;
-        payload.show = true;
+
         mysql.pool.query('SELECT * FROM StreamingServices', (err, result) => {  // get all streaming services
           if (err) {
             next(err);
@@ -274,6 +287,7 @@ app.post('/edit', (req, res, next) => {
                 next(err);
                 return;
               }
+              payload.show = true;
               payload.score = result[0].score;
               res.render('edit', payload);
             });
@@ -296,29 +310,19 @@ app.post('/update', (req, res, next) => {
   payload.titles = [];
   payload.success = false;
   payload.streams = [];
-  var stream = [];
   console.log(req.body);
+  // console.log(req.body);
   mysql.pool.query('SELECT * FROM StreamingServices', (err, result) => {  // get all streaming services
     if (err) {
       next(err);
       return;
     }
     for (var i = 0; i < result.length; i++) {
-      payload.streams.push({ streamingServiceID: result[i].streamingServiceID, name: result[i].name });
+      payload.streams[result[i].streamingServiceID] = { selected: false, streamingServiceID: result[i].streamingServiceID, name: result[i].name };
     }
   });
-  // for (var j = 0; j < streams.length; j++) {
-  //   if (streams[j] == 'Netflix') {
-  //     stream.push(1);
-  //   } else if (streams[j] == 'Hulu') {
-  //     stream.push(2);
-  //   } else if (streams[j] == 'Prime') {
-  //     stream.push(3);
-  //   } else if (streams[j] == 'Disney') {
-  //     stream.push(4);
-  //   }
-  // }
   if (type === 'Movie') {
+    console.log("movie")
     mysql.pool.query('UPDATE Movies SET title=? WHERE movieID=?', [title, id], (err, result) => {  // update the movie title
       if (err) {
         next(err);
@@ -334,8 +338,8 @@ app.post('/update', (req, res, next) => {
             next(err);
             return;
           }
-          for (var i = 0; i < stream.length; i++) { // loop through each of the streaming services
-            mysql.pool.query('INSERT INTO StreamingService_Movies (movieID, streamingServiceID) VALUES(?,?)', [id, stream[i]], (err, result) => {  // update score and title
+          for (var i = 0; i < streams.length; i++) { // loop through each of the streaming services
+            mysql.pool.query('INSERT INTO StreamingService_Movies (movieID, streamingServiceID) VALUES(?,?)', [id, streams[i]], (err, result) => {  // update score and title
               if (err) {
                 next(err);
                 return;
@@ -357,6 +361,7 @@ app.post('/update', (req, res, next) => {
       });
     });
   } else if (type === 'Show') {
+    console.log("shows")
     mysql.pool.query('UPDATE Shows SET title=? WHERE showID=?', [title, id], (err, result) => {  // update the show title
       if (err) {
         next(err);
@@ -372,8 +377,8 @@ app.post('/update', (req, res, next) => {
             next(err);
             return;
           }
-          for (var i = 0; i < stream.length; i++) { // loop through each of the streaming services
-            mysql.pool.query('INSERT INTO StreamingService_Shows (showID, streamingServiceID) VALUES(?,?)', [id, stream[i]], (err, result) => {  // update score and title
+          for (var i = 0; i < streams.length; i++) { // loop through each of the streaming services
+            mysql.pool.query('INSERT INTO StreamingService_Shows (showID, streamingServiceID) VALUES(?,?)', [id, streams[i]], (err, result) => {  // update score and title
               if (err) {
                 next(err);
                 return;
