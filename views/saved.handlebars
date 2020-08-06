@@ -1,11 +1,15 @@
 <title>Saved | Showie Movie</title>
 <!-- main -->
 <main>
-    <p style="text-align: center;">A list of added shows and movies will be displayed here. A single example is listed below. <br>Clicking Remove will remove the movie/show from the saved list.<br> Clicking IMDB will display additional move/show information</p>
-    <div class="partials">
+    <p style="text-align: center;">A list of added shows and movies will be displayed here. A single example is listed
+        below. <br>Clicking Remove will remove the movie/show from the saved list.<br> Clicking IMDB will display
+        additional move/show information</p>
+    {{#each data}}
+    <div id={{this.id}} class="partials">
         {{> saved_titles}}
     </div>
+    {{/each}}
 </main>
 
-{{!-- <script src="watchlist.js "></script> --}}
-<script src="titles.js "></script>
+<script src="saved.js "></script>
+{{!-- <script src="titles.js "></script> --}}

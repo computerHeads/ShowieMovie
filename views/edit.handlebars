@@ -2,13 +2,22 @@
 <p style="text-align: center;">A place to edit movie and show data. <br>First, serach for the movie or show you would
   like to edit. <br>Edits can be made to the listed result and saved by clicking the Save button. <br>An example listing
   is show below.</p>
-
-<form class="search" action="#">
+{{#if success}}
+<h1 style="text-align: center; color: red;">Edit Successful!</h1>
+{{/if}}
+<form class="search" action="http://flip2.engr.oregonstate.edu:6548/edit" method="post">
   <fieldset>
     <legend>Find You Want To Edit</legend>
     <!-- search button -->
-    <input id="input-search" type="text" placeholder="Enter Title" name="search">
-    <button id="btn-search" type="submit">🔍 Search</button>
+    <div id="type-select">
+      <label for="title">Select a title: </label>
+      <select class="selectpicker" data-live-search="true" name="titles">
+        {{#each titles}}
+        <option>{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <button id="btn-search" type="submit">Start Edit</button>
   </fieldset>
 </form>
 
@@ -16,29 +25,76 @@
   **CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
 
 <!-- TV/SHOW /TITLE -->
-<form class="add" action="#">
+{{#if id}}
+<form class="edit" action="http://flip2.engr.oregonstate.edu:6548/update" method="post">
   <fieldset>
     <legend>Edit TV Show/Movie Here</legend>
-    <input id="input-title" type="text" placeholder="Edit Title" name="addTitle" value="The Secret Life of Pets">
+    <input id="id" type="hidden" name="id" value="{{id}}">
+    <input id="imdbID" type="hidden" name="imdbID" value="{{imdbID}}">
+    <input id="input-title" type="text" placeholder="Edit Title" name="title" value="{{title}}">
     <br>
-    <input id="input-imdb" type="text" placeholder="Edit IMDB Score" name="addImdb" value="7.8">
+    <input id="input-imdb" type="text" placeholder="Edit IMDB Score" name="imdb" value="{{score}}">
     <!-- multiple choices
   CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
-    <div id="type-select">
+    {{!-- <div id="type-select">
       <label for="types">Types (TV / Movie)</label>
       <select class="selectpicker" data-live-search="true" name="types">
+        {{#if movie}}
         <option>TV Show</option>
+        <option selected>Movie</option>
+        {{/if}}
+        {{#if show}}
+        <option selected>TV Show</option>
         <option>Movie</option>
+        {{/if}}
       </select>
-    </div>
+    </div> --}}
+
+    {{#if movie}}
+    <input id="type" type="hidden" name="type" value="Movie">
+    {{/if}}
+    {{#if show}}
+    <input id="type" type="hidden" name="type" value="Show">
+    {{/if}}
 
     <div id="stream-select">
-      <label for="stream-services">Streaming Services</label>
-      <select class="selectpicker" multiple data-live-search="true" name="stream-services">
+      <label for="stream">Streaming Services</label>
+      <select class="selectpicker" multiple data-live-search="true" name="stream">
+        {{!-- {{#each stream}} --}}
+        {{!-- <option>None</option> --}}
+        {{#each streams}}
+        {{#if this.selected}}
+        <option selected value="{{this.streamingServiceID}}">{{this.name}}</option>
+        {{else}}
+        <option value="{{this.streamingServiceID}}">{{this.name}}</option>
+        {{/if}}
+        {{/each}}
+
+        {{!-- {{#if netflix}}
+        <option selected>Netflix</option>
+        {{else}}
         <option>Netflix</option>
+        {{/if}}
+
+        {{#if hulu}}
+        <option selected>Hulu</option>
+        {{else}}
         <option>Hulu</option>
-        <option>Prime Video</option>
-        <option>Disney+</option>
+        {{/if}}
+
+        {{#if prime}}
+        <option selected>Prime</option>
+        {{else}}
+        <option>Prime</option>
+        {{/if}}
+
+        {{#if disney}}
+        <option selected>Disney+</option>
+        {{else}}
+        <option>Disney</option>
+        {{/if}} --}}
+
+        {{!-- {{/each}} --}}
       </select>
     </div>
 
@@ -46,7 +102,7 @@
     <button id="btn-edit" type="submit">✏️ Edit</button>
   </fieldset>
 </form>
-
+{{/if}}
 <!-- multiple choices
   CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
