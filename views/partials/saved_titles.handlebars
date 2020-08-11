@@ -1,25 +1,16 @@
 <div class="titles">
-    <div>
-        <span class="results"><button onclick="remove({{this.id}})" class="btn-remove">-</button>
-            {{!-- <button class="btn-imdb" onclick="showIMDB('1')">IMDB</button> --}}
-            {{!-- <input id={{this.id}} type="hidden" value={{this.id}}> --}}
-            IMDB Score: {{this.score}}|
-            {{this.title}}|
-            {{#if this.netflix}}
-            <img src="images/netflix.png">
-            {{/if}}
-            {{#if this.hulu}}
-            <img src="images/hulu.png">
-            {{/if}}
-            {{#if this.prime}}
-            <img src="images/prime.png">
-            {{/if}}
-            {{#if this.disney}}
-            <img src="images/disney+.png">
-            {{/if}}
-        </span>
-    </div>
-    <div id='1' class="hide">
+    <span class="results"><button onclick="remove({{this.id}})" class="btn-remove">-</button>
+        <span class="title">{{this.title}}</span>|
+        IMDB Score:
+        <span class="score">{{this.score}}</span>
+        |
+        Available on:
+        {{#each this.streams}}
+
+        <span class="{{this}}">{{this}}</span>
+        {{/each}}
+    </span>
+    {{!-- <div id='1' class="hide">
         <p>This is where IMDB data will be displayed</p>
-    </div>
+    </div> --}}
 </div>

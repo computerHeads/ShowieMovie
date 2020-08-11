@@ -5,66 +5,48 @@
 {{#if success}}
 <h1 style="text-align: center; color: red;">Edit Successful!</h1>
 {{/if}}
-<form class="search" action="http://flip2.engr.oregonstate.edu:6548/edit" method="post">
-  <fieldset>
-    <legend>Find You Want To Edit</legend>
-    <!-- search button -->
-    <div id="type-select">
-      <label for="title">Select a title: </label>
-      <select class="selectpicker" data-live-search="true" name="titles">
-        {{#each titles}}
-        <option>{{this}}</option>
-        {{/each}}
-      </select>
-    </div>
-    <button id="btn-search" type="submit">Start Edit</button>
-  </fieldset>
+<form class="search-title" action="http://flip2.engr.oregonstate.edu:6548/edit" method="post">
+  <legend>Find a Title You Want To Edit</legend>
+  <div>
+    {{!-- <label for="title">Select a title: </label> --}}
+    <select class="title-selector" name="titles" required="true" style="width: 50%;">
+      <option value="" disabled selected hidden>Search for a Title</option>
+      {{#each titles}}
+      <option>{{this}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <button id="btn-search" type="submit">Start Edit</button>
 </form>
 
-<!-- multiple choices
-  **CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
-
-<!-- TV/SHOW /TITLE -->
 {{#if id}}
-<form class="edit" action="http://flip2.engr.oregonstate.edu:6548/update" method="post">
-  <fieldset>
-    <legend>Edit TV Show/Movie Here</legend>
-    <input id="id" type="hidden" name="id" value="{{id}}">
-    <input id="imdbID" type="hidden" name="imdbID" value="{{imdbID}}">
-    <input id="input-title" type="text" placeholder="Edit Title" name="title" value="{{title}}">
-    <br>
-    <input id="input-imdb" type="text" placeholder="Edit IMDB Score" name="imdb" value="{{score}}">
-    <!-- multiple choices
-  CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
-    {{#if movie}}
-    <input id="type" type="hidden" name="type" value="Movie">
+<form class="edit-title" action="http://flip2.engr.oregonstate.edu:6548/update" method="post">
+  <legend>Edit TV Show/Movie Here</legend>
+  <input id="id" type="hidden" name="id" value="{{id}}">
+  <input id="imdbID" type="hidden" name="imdbID" value="{{imdbID}}">
+  <label for="title">Edit Title: </label>
+  <input id="input-title" type="text" placeholder="Edit Title" name="title" value="{{title}}">
+  <br>
+  <label for="imdb">Edit IMDB score: </label>
+  <input id="input-imdb" type="text" placeholder="Edit IMDB Score" name="imdb" value="{{score}}">
+  {{#if movie}}
+  <input id="type" type="hidden" name="type" value="Movie">
+  {{/if}}
+  {{#if show}}
+  <input id="type" type="hidden" name="type" value="Show">
+  {{/if}}
+
+  <div>
+    {{#each streams}}
+    {{#if this.selected}}
+    <input type="checkbox" checked="true" value="{{this.streamingServiceID}}" name={{this.name}}>{{this.name}}</input>
+    {{else}}
+    <input type="checkbox" value="{{this.streamingServiceID}}" name={{this.name}}>{{this.name}}</input>
     {{/if}}
-    {{#if show}}
-    <input id="type" type="hidden" name="type" value="Show">
-    {{/if}}
+    {{/each}}
+  </div>
 
-    <div id="stream-select">
-      <label for="stream">Streaming Services</label>
-      <select class="selectpicker" multiple data-live-search="true" name="stream">
+  <button id="btn-edit" type="submit">✏️ Edit</button>
 
-        {{#each streams}}
-        {{#if this.selected}}
-        <option selected value="{{this.streamingServiceID}}">{{this.name}}</option>
-        {{else}}
-        <option value="{{this.streamingServiceID}}">{{this.name}}</option>
-        {{/if}}
-        {{/each}}
-
-      </select>
-    </div>
-
-    <!-- submit -->
-    <button id="btn-edit" type="submit">✏️ Edit</button>
-  </fieldset>
 </form>
 {{/if}}
-<!-- multiple choices
-  CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>

@@ -1,22 +1,17 @@
 <title>Search | Showie Movie</title>
 <!-- search -->
 <main>
-    <form class="search" action="http://flip2.engr.oregonstate.edu:6548/search" method="post">
-        <select id="type" name="type" required="true">
-            <option value="" disabled selected>TV / Movie</option>
-            <option value="Shows">TV Shows</option>
-            <option value="Movies">Movies</option>
-        </select>
-        {{!-- <select id="services" name="services">
-            <option value="disabled selected">Streaming Service</option>
-            <option>Netflix</option>
-            <option>Hulu</option>
-            <option>Prime Video</option>
-            <option>Disney+
-            <option>
-        </select> --}}
-        <!-- search button -->
-        <input id="input-search" type="text" placeholder="Enter Title" name="search" required="true">
+    <form class="search-title" action="http://flip2.engr.oregonstate.edu:6548/search" method="post">
+        <legend>Find a Show or Movie:</legend>
+        <div>
+            {{!-- <label for="title">Select a title: </label> --}}
+            <select class="title-selector" name="titles" required="true" style="width: 50%;">
+                <option value="" disabled selected hidden>Search for a Title</option>
+                {{#each titles}}
+                <option>{{this}}</option>
+                {{/each}}
+            </select>
+        </div>
         <button id="btn-search" type="submit">🔍 Search</button>
     </form>
 
@@ -29,5 +24,5 @@
     </div>
     {{/if}}
 </main>
-{{!-- <script src="/public/script.js"></script> --}}
+
 <script src="titles.js "></script>

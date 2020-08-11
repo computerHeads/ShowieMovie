@@ -1,62 +1,36 @@
 <title>Add | Showie Movie</title>
-<!-- multiple choices
-  **CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
-
 <!-- Streaming Service -->
-<form class="add" action="http://flip2.engr.oregonstate.edu:6548/add-new" method="post">
-  <fieldset>
-    <legend>Add New Streaming Service Here:</legend>
-    {{#if success}}
-    <h1 style="text-align: center; color: red;">Add Successful!</h1>
-    {{/if}}
-    <input id="input-stream" type="text" placeholder="Enter New Streaming Service" name="addStream">
-    <br>
-
-    <!-- add -->
-    <button id="btn-submit" type="submit">➕ Add</button>
-  </fieldset>
+<form class="add-stream" action="http://flip2.engr.oregonstate.edu:6548/add-new" method="post">
+  <legend>Add New Streaming Service Here:</legend>
+  {{#if success}}
+  <h1 style="text-align: center; color: red;">Add Successful!</h1>
+  {{/if}}
+  <input id="input-stream" type="text" placeholder="Enter New Streaming Service" name="addStream" required>
+  <!-- add -->
+  <button id="btn-submit" type="submit">➕ Add</button>
 </form>
-
 <!-- TV/SHOW /TITLE -->
-<form class="add" action="http://flip2.engr.oregonstate.edu:6548/add" method="post">
-  <fieldset>
-    <legend>Add New TV Show/Movie Here:</legend>
-    {{#if notification}}
-    <h1 style="text-align: center; color: red;">Add Successful!</h1>
-    {{/if}}
-    <input id="input-title" type="text" placeholder="Enter Title" name="title">
-    <br>
-    <input id="input-imdb" type="text" placeholder="Enter IMDB Score" name="score">
-    <!-- multiple choices
-  CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
-    <div id="type-select">
-      <label for="types">Types (TV / Movie)</label>
-      <select class="selectpicker" data-live-search="true" name="types">
-        <option>Show</option>
-        <option>Movie</option>
-      </select>
-    </div>
+<form class="add-title" action="http://flip2.engr.oregonstate.edu:6548/add" method="post">
+  <legend>Add New TV Show/Movie Here:</legend>
+  {{#if notification}}
+  <h1 style="text-align: center; color: red;">Add Successful!</h1>
+  {{/if}}
+  <input id="input-title" type="text" placeholder="Enter Title" name="title" required>
+  <input id="input-imdb" type="text" placeholder="Enter IMDB Score" name="score">
+  <br>
+  <span id="add-type-select">
+    <select class="selector" name="types" required>
+      <option value="" disabled selected hidden>Select a Type</option>
+      <option>Show</option>
+      <option>Movie</option>
+    </select>
+  </span>
 
-    <div id="stream-select">
-      <label for="streams">Streaming Services</label>
-      <select class="selectpicker" multiple data-live-search="true" name="streams">
-        {{#each streams}}
-        <option value="{{this.streamingServiceID}}">{{this.name}}</option>
-        {{/each}}
-        {{!-- <option value="1">Netflix</option>
-        <option value="2">Hulu</option>
-        <option value="3">Prime</option>
-        <option value="4">Disney+</option> --}}
-      </select>
-    </div>
-
-    <!-- submit -->
-    <button id="btn-submit" type="submit">📝 Submit</button>
-  </fieldset>
+  <span class="checkbox-block">
+    {{#each streams}}
+    <input class="checkbox" type="checkbox" value="{{this.streamingServiceID}}" name={{this.name}}>{{this.name}}</input>
+    {{/each}}
+  </span>
+  <!-- submit -->
+  <button id="btn-submit" type="submit">📝 Submit</button>
 </form>
-
-<!-- multiple choices
-  CREDIT:https://stackoverflow.com/questions/50895806/bootstrap-4-multiselect-dropdown -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
