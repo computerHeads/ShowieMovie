@@ -43,6 +43,10 @@ main {
   text-align: center;
 }
 
+#resultTitle{
+margin-top: 50px;
+}
+
 #type {
   color: rgb(88, 88, 88);
   font-weight: bold;
@@ -84,7 +88,63 @@ main {
   color: black;
 }
 
+.title , .score{
+  font-size: 30px;
+  color: mediumseagreen;
+}
+
+#addSuccess{
+  text-align: center;
+  color: red;
+}
+
+#title-selector {
+  margin: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 5px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 15px 10px 15px 10px;
+}
+#title-selector option{
+  width: 100%;
+}
+
+.Netflix {
+  color: red;
+}
+.Hulu {
+  color: limegreen;
+}
+.Disney {
+  color: lightskyblue;
+}
+.Prime {
+  color: orange;
+}
+
 /* saved */
+
+#saved-title-title{
+  font-family: Lucida Console, Courier, monospace;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  border: 1.5px solid rgb(75, 179, 179);
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  width: 50%;
+  background-color: rgb(75, 179, 179);
+  margin: auto;
+}
+
+#list-of-titles{
+  margin-top: 50px;
+
+}
+
 .hide {
   display: none;
   position: absolute;
@@ -98,21 +158,32 @@ main {
   text-align: center;
 }
 
-/* add */
-.add {
-  text-align: center;
-  margin-top: 50px;
+.saved-partials{
+margin-top: 20px;
 }
 
-.add legend {
+.titles{
+  text-align: center;
+}
+
+/* add */
+.add-title, .add-stream, .search-title, .edit-title {
+  text-align: center;
+  margin: auto;
+  margin-top: 50px;
+  width: 50%;
+}
+
+.add-title legend, .add-stream legend, .edit-title legend, .search-title legend  {
+  font-family: Lucida Console, Courier, monospace;
   padding: 10px;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   border: 1.5px solid rgb(75, 179, 179);
   border-radius: 20px;
   color: white;
   text-align: center;
-  width: 50%;
+  width: 100%;
   background-color: rgb(75, 179, 179);
 }
 
@@ -122,23 +193,30 @@ main {
   margin-top: 50px;
 }
 
-.edit legend {
-  padding: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  border: 1.5px solid rgb(75, 179, 179);
-  border-radius: 20px;
-  color: white;
-  text-align: center;
-  width: 50%;
-  background-color: rgb(75, 179, 179);
+.checkbox-block{
+  margin-top: 20px;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  width: 100%;
+
+}
+.checkbox{
+margin-left: 30px;
+width: 20px;
+height: 20px;
 }
 
-#type-select {
-  margin: 10px;
+#add-type-select {
+  margin-top: 20px;
+  padding: 15px 10px 15px 10px;
+  float: left;
   font-size: 25px;
   font-weight: bold;
-  color: rgb(75, 179, 179);
+  width: 20%;
+  border-radius: 10px;
 }
 
 #stream-select {
@@ -147,27 +225,34 @@ main {
   font-weight: bold;
   color: rgb(75, 179, 179)
 }
+input{
+  text-align: center;
+}
 
 #input-title {
-  margin: 10px;
+  margin-top: 20px;
   font-size: 25px;
-  padding: 5px;
-  width: 390px;
+  font-weight: bold;
+  padding: 15px 10px 15px 10px;
+  width: 55%;
   border-radius: 10px;
 }
 
 #input-imdb {
-  margin: 10px;
+  margin-top: 20px;
+  float: right;
   font-size: 25px;
-  padding: 5px;
-  width: 390px;
+  font-weight: bold;
+  padding: 15px 10px 15px 10px;
+  width: 20%;
   border-radius: 10px;
 }
 
 #input-stream {
   margin: 10px;
   font-size: 25px;
-  padding: 5px;
+  font-weight: bold;
+  padding: 15px 10px 15px 10px;
   width: 390px;
   border-radius: 10px;
 }
@@ -180,26 +265,22 @@ main {
   background-color: rgb(53, 126, 126);
   padding: 10px;
   border-radius: 10px;
+  text-align: center;
 }
 
 #btn-submit:hover {
   background-color:rgb(150, 218, 218);
   color: black;
 }
-
-/* edit */
-.search legend {
-  padding: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  border: 1.5px solid rgb(75, 179, 179);
-  border-radius: 20px;
-  color: white;
-  text-align: center;
-  width: 50%;
-  background-color: rgb(75, 179, 179);
+.selector {
+  margin: 10px;
+  font-size: 25px;
+  padding: 5px;
+  width: 390px;
+  border-radius: 10px;
 }
 
+/* edit */
 #btn-edit {
   font-size: 25px;
   font-weight: bold;
@@ -215,6 +296,23 @@ main {
   color: black;
 }
 
+#edit-input-imdb{
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 15px 10px 15px 10px;
+  width: 20%;
+  border-radius: 10px;
+}
+
+#edit-score-label{
+  margin-left: 30px;
+}
+
+.edit-labels{
+  font-size: 25px;
+  font-weight: bold;
+}
 /* partials */
 .results {
   font-size: 25px;
@@ -263,4 +361,8 @@ main {
   border-radius: 10px;
   position: relative;
   top: -5px;
+}
+
+legend {
+  margin: auto;
 }

@@ -1,33 +1,22 @@
 <title>Search | Showie Movie</title>
 <!-- search -->
 <main>
-    <form class="search" action="http://flip2.engr.oregonstate.edu:6548/search" method="post">
-        <select id="type" name="type" required="true">
-            <option value="" disabled selected>TV / Movie</option>
-            <option value="Shows">TV Shows</option>
-            <option value="Movies">Movies</option>
+    <form class="search-title" action="http://flip2.engr.oregonstate.edu:6548/search" method="post">
+        <legend>Find a Show or Movie:</legend>
+        <select id="title-selector" name="titles" required="true">
+            <option value="" disabled selected hidden>Search for a Title</option>
+            {{#each titles}}
+            <option>{{this}}</option>
+            {{/each}}
         </select>
-        {{!-- <select id="services" name="services">
-            <option value="disabled selected">Streaming Service</option>
-            <option>Netflix</option>
-            <option>Hulu</option>
-            <option>Prime Video</option>
-            <option>Disney+
-            <option>
-        </select> --}}
-        <!-- search button -->
-        <input id="input-search" type="text" placeholder="Enter Title" name="search" required="true">
         <button id="btn-search" type="submit">🔍 Search</button>
     </form>
 
-    <p style="text-align: center;">Results of the search will be displayed here in a list.<br> An example of a single
-        result is listed below.<br> Clicking save will save the movie/show to the saved<img height="14px" width="14px"
-            src="images/heart.png"> list.<br> Clicking IMDB will display additional movie/show information</p>
     {{#if result}}
-    <div class="partials">
+    <div id="title-result" class="partials">
         {{> titles}}
     </div>
     {{/if}}
 </main>
-{{!-- <script src="/public/script.js"></script> --}}
+
 <script src="titles.js "></script>
