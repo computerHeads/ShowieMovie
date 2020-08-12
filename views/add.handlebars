@@ -1,7 +1,8 @@
 <title>Add | Showie Movie</title>
 <!-- Streaming Service -->
 <form class="add-stream" action="http://flip2.engr.oregonstate.edu:6548/add-new" method="post">
-  <legend>Add New Streaming Service Here:</legend>
+  <legend>Add New Streaming Service</legend>
+  <br>
   {{#if success}}
   <h1 style="text-align: center; color: red;">Add Successful!</h1>
   {{/if}}
@@ -9,27 +10,55 @@
   <!-- add -->
   <button id="btn-submit" type="submit">➕ Add</button>
 </form>
+<br><br>
 <!-- TV/SHOW /TITLE -->
 <form class="add-title" action="http://flip2.engr.oregonstate.edu:6548/add" method="post">
-  <legend>Add New Show or Movie Here:</legend>
+  <legend>Add New Show or Movie</legend>
   {{#if notification}}
   <h1 style="text-align: center; color: red;">Add Successful!</h1>
   {{/if}}
-  <span class="checkbox-block">
-    {{#each streams}}
-    <input class="checkbox" type="checkbox" value="{{this.streamingServiceID}}" name={{this.name}}>{{this.name}}</input>
-    {{/each}}
-  </span>
+  <table>
+    <tr>
+      <td>
+        <label class="add-page-labels" for="title">TITLE</label>
+      </td>
+      <td>
+        <input id="input-title" type="text" placeholder="Enter Title" name="title" required>
+      </td>
+    </tr>
+    <tr>
+      <td style="width:120px">
+        <label class="add-page-labels" for="types">TYPE</label>
+      </td>
+      <td>
+        <select id="add-type-select" name="types" required>
+          <option value="" disabled selected hidden>Select a Type</option>
+          <option>Show</option>
+          <option>Movie</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label class="add-page-labels" for="score">SCORE</label>
+      </td>
+      <td>
+        <input id="input-imdb" type="number" placeholder="Enter IMDB Score" name="score">
+      </td>
+    </tr>
+    <tr>
+      <span class="checkbox-block"></span>
+      <td colspan="2" style="font-size: 25px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">
+        {{#each streams}}
+        <input class="checkbox" type="checkbox" value="{{this.streamingServiceID}}"
+          name={{this.name}}>{{this.name}}</input>
+        {{/each}}
+        </span>
+      </td>
+    </tr>
+  </table>
+
   <br>
-  <span>
-    <select id="add-type-select" name="types" required>
-      <option value="" disabled selected hidden>Select a Type</option>
-      <option>Show</option>
-      <option>Movie</option>
-    </select>
-  </span>
-  <input id="input-title" type="text" placeholder="Enter Title" name="title" required>
-  <input id="input-imdb" type="number" placeholder="Enter IMDB Score" name="score">
   <!-- submit -->
   <button id="btn-submit" type="submit">➕ Add</button>
 </form>

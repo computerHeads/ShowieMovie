@@ -5,6 +5,7 @@
 {{/if}}
 <form class="search-title" action="http://flip2.engr.oregonstate.edu:6548/edit" method="post">
   <legend>Find a Title You Want To Edit</legend>
+  <br>
   <div>
     <select id="title-selector" name="titles" required="true">
       <option value="" disabled selected hidden style="text-align: center;">Search for a Title</option>
@@ -15,31 +16,52 @@
   </div>
   <button id="btn-search" type="submit">Start Edit</button>
 </form>
-
+<br><br>
 {{#if id}}
 <form class="edit-title" action="http://flip2.engr.oregonstate.edu:6548/update" method="post">
   <legend>Edit TV Show/Movie Here</legend>
+
   <input id="id" type="hidden" name="id" value="{{id}}">
   <input id="imdbID" type="hidden" name="imdbID" value="{{imdbID}}">
   <div class="checkbox-block">
-    {{#each streams}}
-    {{#if this.selected}}
-    <input class="checkbox" type="checkbox" checked="true" value="{{this.streamingServiceID}}"
-      name={{this.name}}>{{this.name}}</input>
-    {{else}}
-    <input class="checkbox" type="checkbox" value="{{this.streamingServiceID}}" name={{this.name}}>{{this.name}}</input>
-    {{/if}}
-    {{/each}}
-  </div>
-  <span id="edit-label-title">
-    <label class="edit-labels" for="title">Title: </label>
-    <input id="input-title" type="text" placeholder="Edit Title" name="title" value="{{title}}">
-  </span>
 
-  <span id="edit-score-label">
-    <label class="edit-labels" for="imdb">IMDB score: </label>
-    <input id="edit-input-imdb" type="text" placeholder="Edit IMDB Score" name="imdb" value="{{score}}">
-  </span>
+  </div>
+  <table>
+    <tr>
+      <td style="width:120px; font-weight: bold; color: rgb(75, 179, 179);"><label class="edit-labels" for="title">TITLE
+        </label>
+      </td>
+      <td><input id="edit-input-title" type="text" placeholder="Edit Title" name="title" value="{{title}}"></td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold; color: rgb(75, 179, 179);"><label class="edit-labels" for="imdb">IMDB SCORE </label>
+      </td>
+      <td><input id="edit-input-imdb" type="number" placeholder="Edit IMDB Score" name="imdb" value="{{score}}"></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="font-size: 25px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">
+        {{#each streams}}
+        {{#if this.selected}}
+        <input class="checkbox" type="checkbox" checked="true" value="{{this.streamingServiceID}}"
+          name={{this.name}}>{{this.name}}</input>
+        {{else}}
+        <input class="checkbox" type="checkbox" value="{{this.streamingServiceID}}"
+          name={{this.name}}>{{this.name}}</input>
+        {{/if}}
+        {{/each}}
+      </td>
+
+    </tr>
+  </table>
+  <div id="edit-containter">
+
+
+
+    <br>
+
+
+
+  </div>
 
 
   {{#if movie}}
@@ -48,7 +70,7 @@
   {{#if show}}
   <input id="type" type="hidden" name="type" value="Show">
   {{/if}}
-  <br>
+  {{!-- <br> --}}
   <button id="btn-edit" type="submit">✏️ Edit</button>
 
 </form>
