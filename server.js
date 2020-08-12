@@ -541,7 +541,7 @@ function addPage(res, success) {
   var payload = {};
   payload.notification = success;
   payload.streams = [];
-  mysql.pool.query('SELECT * FROM StreamingServices', (err, result) => {  // get all streaming services
+  mysql.pool.query(selectAllStreams, (err, result) => {  // get all streaming services
     if (err) {
       next(err);
       return;
