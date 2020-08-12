@@ -2,13 +2,15 @@
 <!-- search -->
 <main>
     <form class="search-title" action="http://flip2.engr.oregonstate.edu:6548/search" method="post">
-        <legend>Find a Show or Movie:</legend>
+        <legend>Find a Show or Movie</legend>
+        <br>
         <select id="title-selector" name="titles" required="true">
             <option value="" disabled selected hidden>Search for a Title</option>
             {{#each titles}}
             <option>{{this}}</option>
             {{/each}}
         </select>
+        <br>
         <button id="btn-search" type="submit">🔍 Search</button>
     </form>
 

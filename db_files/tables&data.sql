@@ -38319,7 +38319,7 @@ INSERT INTO `Movies` (`movieID`, `title`, `imdbID`) VALUES
 (15899, 'American Dope: White Powder  Black Power', 15899),
 (15900, 'Pretty Bad Actress', 15900),
 (15901, 'The Harbortown Bobber', 15901),
-(15902, '\"22\" A film about Veterans  Healthcare and Suicide.', 15902),
+(15902, '22 A film about Veterans  Healthcare and Suicide.', 15902),
 (15903, 'Christmas Cartoons: 14 Christmas Cartoon Classics - 2 Hours of Holiday Favorites', 15903),
 (15904, 'Is Sugar the New Fat?', 15904),
 (15905, 'When Darkness Falls: 2 Chiller Tales', 15905),
