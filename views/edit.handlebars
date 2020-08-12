@@ -1,16 +1,13 @@
 <title>Edit | Showie Movie</title>
-<p style="text-align: center;">A place to edit movie and show data. <br>First, serach for the movie or show you would
-  like to edit. <br>Edits can be made to the listed result and saved by clicking the Save button. <br>An example listing
-  is show below.</p>
+
 {{#if success}}
 <h1 style="text-align: center; color: red;">Edit Successful!</h1>
 {{/if}}
 <form class="search-title" action="http://flip2.engr.oregonstate.edu:6548/edit" method="post">
   <legend>Find a Title You Want To Edit</legend>
   <div>
-    {{!-- <label for="title">Select a title: </label> --}}
-    <select class="title-selector" name="titles" required="true" style="width: 50%;">
-      <option value="" disabled selected hidden>Search for a Title</option>
+    <select id="title-selector" name="titles" required="true">
+      <option value="" disabled selected hidden style="text-align: center;">Search for a Title</option>
       {{#each titles}}
       <option>{{this}}</option>
       {{/each}}
@@ -24,28 +21,34 @@
   <legend>Edit TV Show/Movie Here</legend>
   <input id="id" type="hidden" name="id" value="{{id}}">
   <input id="imdbID" type="hidden" name="imdbID" value="{{imdbID}}">
-  <label for="title">Edit Title: </label>
-  <input id="input-title" type="text" placeholder="Edit Title" name="title" value="{{title}}">
-  <br>
-  <label for="imdb">Edit IMDB score: </label>
-  <input id="input-imdb" type="text" placeholder="Edit IMDB Score" name="imdb" value="{{score}}">
+  <div class="checkbox-block">
+    {{#each streams}}
+    {{#if this.selected}}
+    <input class="checkbox" type="checkbox" checked="true" value="{{this.streamingServiceID}}"
+      name={{this.name}}>{{this.name}}</input>
+    {{else}}
+    <input class="checkbox" type="checkbox" value="{{this.streamingServiceID}}" name={{this.name}}>{{this.name}}</input>
+    {{/if}}
+    {{/each}}
+  </div>
+  <span id="edit-label-title">
+    <label class="edit-labels" for="title">Title: </label>
+    <input id="input-title" type="text" placeholder="Edit Title" name="title" value="{{title}}">
+  </span>
+
+  <span id="edit-score-label">
+    <label class="edit-labels" for="imdb">IMDB score: </label>
+    <input id="edit-input-imdb" type="text" placeholder="Edit IMDB Score" name="imdb" value="{{score}}">
+  </span>
+
+
   {{#if movie}}
   <input id="type" type="hidden" name="type" value="Movie">
   {{/if}}
   {{#if show}}
   <input id="type" type="hidden" name="type" value="Show">
   {{/if}}
-
-  <div>
-    {{#each streams}}
-    {{#if this.selected}}
-    <input type="checkbox" checked="true" value="{{this.streamingServiceID}}" name={{this.name}}>{{this.name}}</input>
-    {{else}}
-    <input type="checkbox" value="{{this.streamingServiceID}}" name={{this.name}}>{{this.name}}</input>
-    {{/if}}
-    {{/each}}
-  </div>
-
+  <br>
   <button id="btn-edit" type="submit">✏️ Edit</button>
 
 </form>

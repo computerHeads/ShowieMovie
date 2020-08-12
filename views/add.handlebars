@@ -11,26 +11,25 @@
 </form>
 <!-- TV/SHOW /TITLE -->
 <form class="add-title" action="http://flip2.engr.oregonstate.edu:6548/add" method="post">
-  <legend>Add New TV Show/Movie Here:</legend>
+  <legend>Add New Show or Movie Here:</legend>
   {{#if notification}}
   <h1 style="text-align: center; color: red;">Add Successful!</h1>
   {{/if}}
-  <input id="input-title" type="text" placeholder="Enter Title" name="title" required>
-  <input id="input-imdb" type="text" placeholder="Enter IMDB Score" name="score">
-  <br>
-  <span id="add-type-select">
-    <select class="selector" name="types" required>
-      <option value="" disabled selected hidden>Select a Type</option>
-      <option>Show</option>
-      <option>Movie</option>
-    </select>
-  </span>
-
   <span class="checkbox-block">
     {{#each streams}}
     <input class="checkbox" type="checkbox" value="{{this.streamingServiceID}}" name={{this.name}}>{{this.name}}</input>
     {{/each}}
   </span>
+  <br>
+  <span>
+    <select id="add-type-select" name="types" required>
+      <option value="" disabled selected hidden>Select a Type</option>
+      <option>Show</option>
+      <option>Movie</option>
+    </select>
+  </span>
+  <input id="input-title" type="text" placeholder="Enter Title" name="title" required>
+  <input id="input-imdb" type="number" placeholder="Enter IMDB Score" name="score">
   <!-- submit -->
-  <button id="btn-submit" type="submit">📝 Submit</button>
+  <button id="btn-submit" type="submit">➕ Add</button>
 </form>

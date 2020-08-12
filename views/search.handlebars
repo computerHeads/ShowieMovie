@@ -3,23 +3,17 @@
 <main>
     <form class="search-title" action="http://flip2.engr.oregonstate.edu:6548/search" method="post">
         <legend>Find a Show or Movie:</legend>
-        <div>
-            {{!-- <label for="title">Select a title: </label> --}}
-            <select class="title-selector" name="titles" required="true" style="width: 50%;">
-                <option value="" disabled selected hidden>Search for a Title</option>
-                {{#each titles}}
-                <option>{{this}}</option>
-                {{/each}}
-            </select>
-        </div>
+        <select id="title-selector" name="titles" required="true">
+            <option value="" disabled selected hidden>Search for a Title</option>
+            {{#each titles}}
+            <option>{{this}}</option>
+            {{/each}}
+        </select>
         <button id="btn-search" type="submit">🔍 Search</button>
     </form>
 
-    <p style="text-align: center;">Results of the search will be displayed here in a list.<br> An example of a single
-        result is listed below.<br> Clicking save will save the movie/show to the saved<img height="14px" width="14px"
-            src="images/heart.png"> list.<br> Clicking IMDB will display additional movie/show information</p>
     {{#if result}}
-    <div class="partials">
+    <div id="title-result" class="partials">
         {{> titles}}
     </div>
     {{/if}}

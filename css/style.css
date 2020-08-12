@@ -43,6 +43,10 @@ main {
   text-align: center;
 }
 
+#resultTitle{
+margin-top: 50px;
+}
+
 #type {
   color: rgb(88, 88, 88);
   font-weight: bold;
@@ -94,12 +98,17 @@ main {
   color: red;
 }
 
-.title-selector {
+#title-selector {
   margin: 10px;
   font-size: 25px;
+  font-weight: bold;
   padding: 5px;
   width: 100%;
   border-radius: 10px;
+  padding: 15px 10px 15px 10px;
+}
+#title-selector option{
+  width: 100%;
 }
 
 .Netflix {
@@ -116,6 +125,26 @@ main {
 }
 
 /* saved */
+
+#saved-title-title{
+  font-family: Lucida Console, Courier, monospace;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  border: 1.5px solid rgb(75, 179, 179);
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  width: 50%;
+  background-color: rgb(75, 179, 179);
+  margin: auto;
+}
+
+#list-of-titles{
+  margin-top: 50px;
+
+}
+
 .hide {
   display: none;
   position: absolute;
@@ -129,13 +158,15 @@ main {
   text-align: center;
 }
 
+.saved-partials{
+margin-top: 20px;
+}
+
 .titles{
   text-align: center;
 }
+
 /* add */
-/* .inputs{
-  margin: auto;
-} */
 .add-title, .add-stream, .search-title, .edit-title {
   text-align: center;
   margin: auto;
@@ -163,12 +194,14 @@ main {
 }
 
 .checkbox-block{
+  margin-top: 20px;
   font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
-  /* float: right; */
+  width: 100%;
+
 }
 .checkbox{
 margin-left: 30px;
@@ -177,11 +210,13 @@ height: 20px;
 }
 
 #add-type-select {
-  /* margin: 10px; */
+  margin-top: 20px;
+  padding: 15px 10px 15px 10px;
   float: left;
   font-size: 25px;
   font-weight: bold;
-  color: rgb(75, 179, 179);
+  width: 20%;
+  border-radius: 10px;
 }
 
 #stream-select {
@@ -190,22 +225,25 @@ height: 20px;
   font-weight: bold;
   color: rgb(75, 179, 179)
 }
+input{
+  text-align: center;
+}
 
 #input-title {
   margin-top: 20px;
-  /* margin: 10px; */
   font-size: 25px;
-  padding: 5px;
-  width: 75%;
+  font-weight: bold;
+  padding: 15px 10px 15px 10px;
+  width: 55%;
   border-radius: 10px;
 }
 
 #input-imdb {
   margin-top: 20px;
-  /* margin-left: 10px; */
   float: right;
   font-size: 25px;
-  padding: 5px;
+  font-weight: bold;
+  padding: 15px 10px 15px 10px;
   width: 20%;
   border-radius: 10px;
 }
@@ -213,7 +251,8 @@ height: 20px;
 #input-stream {
   margin: 10px;
   font-size: 25px;
-  padding: 5px;
+  font-weight: bold;
+  padding: 15px 10px 15px 10px;
   width: 390px;
   border-radius: 10px;
 }
@@ -242,7 +281,6 @@ height: 20px;
 }
 
 /* edit */
-
 #btn-edit {
   font-size: 25px;
   font-weight: bold;
@@ -258,6 +296,23 @@ height: 20px;
   color: black;
 }
 
+#edit-input-imdb{
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 15px 10px 15px 10px;
+  width: 20%;
+  border-radius: 10px;
+}
+
+#edit-score-label{
+  margin-left: 30px;
+}
+
+.edit-labels{
+  font-size: 25px;
+  font-weight: bold;
+}
 /* partials */
 .results {
   font-size: 25px;

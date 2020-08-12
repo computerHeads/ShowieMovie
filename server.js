@@ -71,7 +71,11 @@ app.get('/saved', (req, res, next) => {
       next(err);
       return;
     }
-    getTitleInfo(res, result)
+    if (result.length === 0) {
+      res.render('saved');
+    } else {
+      getTitleInfo(res, result)
+    }
   });
 });
 
@@ -211,7 +215,6 @@ app.post('/add', (req, res, next) => {
   const score = req.body.score;
   const type = req.body.types;
   var streams = [];
-  console.log(req.body)
   var imdb;
   var movieID;
   var showID;
@@ -228,7 +231,6 @@ app.post('/add', (req, res, next) => {
         }
       }
     }
-    // console.log(streams)
     mysql.pool.query(insertImdb, [title, score], (err, result) => {  // insert new title and score to IMDB table
       if (err) {
         next(err);
@@ -320,6 +322,7 @@ app.post('/add-new', (req, res, next) => {
 // COLLECT AND SEND ALL TITLE INFO
 function getTitleInfo(res, data) {
   var titles = data;
+
   var payload = {};
   payload.data = []
   var streams = [];
