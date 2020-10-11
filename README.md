@@ -8,7 +8,8 @@ A place where people can search for shows and movies that across different strea
 
 Create new file named dbcon.js in the scripts folder.
 
-In scripts/dbcon.js,
+In scripts/dbcon.js:
+'''
 const mysql = require("mysql");
 const pool = mysql.createPool({
 host: "",
@@ -17,3 +18,4 @@ password: "",
 database: ""
 });
 module.exports.pool = pool;
+'''
