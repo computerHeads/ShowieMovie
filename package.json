@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@ttskch/select2-bootstrap4-theme": "^1.4.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-handlebars": "^4.0.4",
     "forever": "^3.0.0",
     "mysql": "^2.18.1"
